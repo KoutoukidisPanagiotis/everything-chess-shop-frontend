@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
+import { ProductGridComponent } from './components/product-grid/product-grid.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductGridComponent
   ],
   imports: [
     BrowserModule,
