@@ -9,10 +9,10 @@ import { ProductGridComponent } from './components/product-grid/product-grid.com
 import { Router, RouterModule, Routes } from '@angular/router';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { SearchComponent } from './components/search/search.component';
-import { ReactiveFormsModule,} from '@angular/forms';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
+  { path: 'products/:id', component: ProductDetailsComponent},
   { path: 'search/:keyword', component: ProductGridComponent},
   { path: 'category/:id', component: ProductGridComponent },
   { path: 'category', component: ProductGridComponent },
@@ -35,7 +35,6 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

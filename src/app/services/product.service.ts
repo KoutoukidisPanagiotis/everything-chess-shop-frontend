@@ -46,6 +46,12 @@ export class ProductService {
       map(response => response.categoryName)
     );
   }
+
+  getProduct(productId: number) {
+    const searchUrl = `${this.baseUrl}/${productId}`;
+    return this.httpClient.get<Product>(searchUrl);
+  }
+  
 }
 
 

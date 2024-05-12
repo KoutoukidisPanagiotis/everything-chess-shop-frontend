@@ -1,1 +1,11 @@
-<p>product-details works!</p>
+<div>
+    <div class="container-fluid">
+        <p>{{product.name}}</p>
+        <p>{{product.unitPrice}}</p>
+        <p>{{product.category}}</p>
+        <p>{{product.unitsInStock}}</p>
+        <img src="{{product.imageUrl}}" alt="">
+    </div>
+</div>
+
+<a routerLink="/products">Back to Products</a>

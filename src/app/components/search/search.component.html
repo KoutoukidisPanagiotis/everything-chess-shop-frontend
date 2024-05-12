@@ -4,18 +4,18 @@
     <nav class="navbar navbar-light header-style">
         <div class="logo-container">
             <a class="navbar-brand" href="#">
-                <img src="https://cdn.pixabay.com/photo/2024/05/04/16/28/badge-8739558_1280.png" alt="" width="30" height="24">
+                <img src="/assets/images/logo.png" width="30" height="24">
               </a>
         </div>
 
 
 
        
-        <form (submit)="onSearch($event)">
-            <input type="text" [formControl]="searchControl" class="search-input" placeholder="Search">
-            <button type="submit">Search</button>
-          </form>
-          
+        
+          <div>
+            <input #searchInput type="text" placeholder="Search..." class="form-control" (keyup.enter)="onSearch(searchInput.value)">
+            <button (click)="onSearch(searchInput.value)">Search</button>
+          </div>
 
         
           
