@@ -1,14 +1,14 @@
-<div class="row">
-    <div class="col-4">
+<aside class="sidebar">
+    <!-- <div > -->
       <div class="list-group">
-      <ul>
-        <li *ngFor="let tempCategory of categories">
-            <a routerLink="/category/{{tempCategory.id}}">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item" *ngFor="let tempCategory of categories" routerLinkActive="active">
+            <a class="nav-link"  routerLink="/category/{{tempCategory.id}}">
             {{tempCategory.categoryName}}</a>
         </li>
       </ul>
       </div>
-    </div>
+    <!-- </div> -->
     <div class="col-8">
     </div>
-</div>
+</aside>

@@ -8,8 +8,12 @@ import { ProductService } from './services/product.service';
 import { ProductGridComponent } from './components/product-grid/product-grid.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import { SearchComponent } from './components/search/search.component';
+import { ReactiveFormsModule,} from '@angular/forms';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
+  { path: 'search/:keyword', component: ProductGridComponent},
   { path: 'category/:id', component: ProductGridComponent },
   { path: 'category', component: ProductGridComponent },
   { path: 'products', component: ProductGridComponent },
@@ -22,13 +26,16 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductGridComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    SearchComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

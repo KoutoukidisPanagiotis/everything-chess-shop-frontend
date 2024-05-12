@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+main.container {
+    height: calc(100vh - 4rem);
+}
+
+.sidebar-container {
+    background-color: #94b1ae;
+    height: calc(100vh - 4rem);
+}
+
+
+.logo-container {
+    margin: 0.5rem 1rem;
+
+}
+
+.header-style {
+    background-color: #456a6a;
+    box-shadow: 0px 15px 10px -15px #111;
+}
+
+.sidebar-container {
+    box-shadow: 4px 0px 5px 0px #939393;
+}
+
+.products-container {
+    padding: 3rem;
+}
+
+
+.btn.btn-primary{
+    background-color: #456a6a;
+    border-color: #456a6a;
+}
+.btn.btn-primary:hover{
+    background-color: #547268;
+    border-color: #547268;
+}
+.btn.btn-primary:active{
+    background-color: #64897c;
+    border-color: #64897c;
+}
+.btn.btn-primary:focus{
+    background-color: #64897c;
+    border-color: #64897c;
+}
+.btn.btn-primary:disabled{
+    background-color: #64897c;
+    border-color: #64897c;
+}
+
+.btn.btn-info{
+    background-color: #94b1ae;
+    border-color: #94b1ae;
+}
+.btn.btn-info:hover{
+    background-color: #a5c1be;
+    border-color: #a5c1be;
+}
