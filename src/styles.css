@@ -56,3 +56,5 @@ main.container {
     background-color: #a5c1be;
     border-color: #a5c1be;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

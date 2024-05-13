@@ -10,6 +10,8 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent},
@@ -35,8 +37,9 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatPaginatorModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

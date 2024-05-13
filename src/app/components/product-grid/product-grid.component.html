@@ -25,4 +25,10 @@
   </div>
 </div>
 
-<div *ngIf="products.length === 0" class="alert alert-warning" role="alert">No products found.</div>
+<mat-paginator [length]="totalProducts"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="[3, 5, 10, 15 ]"
+               (page)="handlePage($event)">
+</mat-paginator>
+
+<div *ngIf=" !isLoading && products.length === 0" class="alert alert-warning" role="alert">No products found.</div>
