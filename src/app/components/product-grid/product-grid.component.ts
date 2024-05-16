@@ -3,6 +3,8 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../common/product';
 import { ActivatedRoute } from '@angular/router';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { CartItem } from '../../common/cart-item';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-grid',
@@ -27,7 +29,8 @@ export class ProductGridComponent {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartSevice: CartService
   ) {}
 
   ngAfterViewInit() {
@@ -100,4 +103,9 @@ export class ProductGridComponent {
     this.page = data.page.number;
     this.isLoading = false;
   }
+
+  addToCart(theProduct: Product) {
+    const cartItem = new CartItem(theProduct);
+    this.cartSevice.addToCart(cartItem);
+}
 }

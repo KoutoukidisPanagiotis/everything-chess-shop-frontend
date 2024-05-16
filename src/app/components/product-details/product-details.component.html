@@ -1,11 +1,31 @@
 <div *ngIf="product">
-    <div class="container-fluid">
-        <p>{{product.name}}</p>
-        <p>{{product.unitPrice}}</p>
-        <p>{{product.category}}</p>
-        <p>{{product.unitsInStock}}</p>
-        <img src="{{product.imageUrl}}" alt="">
-    </div>
-</div>
+  <div class="container-fluid p-3 description-box">
 
-<a routerLink="/products">Back to Products</a>
+    <h2 class="pb-3">{{ product.name }}</h2>
+    <div class="row">
+        <div class="col-5">
+            <img src="{{ product.imageUrl }}" alt="" class="image-size"/>
+
+        </div>
+        <div class="col-7 d-flex flex-column justify-content-between">
+           
+            <h3>Description</h3>
+            <p>{{ product.description }}</p>
+            
+            <h4>Price</h4>
+            <p>{{ product.unitPrice | currency : "EUR" }}</p>
+            <h4>Quantity Left</h4>
+            <p>{{ product.unitsInStock }}</p>
+
+            <div class="d-flex justify-content-end">
+                <a routerLink="/products" class="btn btn-info">Back to Products</a>
+                <button (click)="addToCart(product)" class="btn btn-primary ms-1">
+                  Add to Cart
+                </button>
+              </div>
+        </div>
+    </div>
+    
+    
+  </div>
+</div>

@@ -1,15 +1,20 @@
-<app-search></app-search>
-
-
-
-
-<main class="container">
-    <div class="row">
-        <div class="col-3 sidebar-container">
-            <app-category-list></app-category-list>
-        </div>
-        <div class="col-9 products-container">
-            <router-outlet></router-outlet>
-        </div>
+<header class="header-style">
+  <nav class="navbar navbar-light header-style">
+    <div class="logo-container">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/logo.png" width="80" height="64" />
+      </a>
     </div>
+    <app-search></app-search>
+    <app-cart-summary></app-cart-summary>
+  </nav>
+</header>
+
+<div class="sidebar-container">
+  <app-category-list></app-category-list>
+</div>
+<main class="main-content">
+  <div class="products-container">
+    <router-outlet></router-outlet>
+  </div>
 </main>

@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <h2>Your Cart</h2>
+  <div *ngIf="cartItems.length != 0">
+    <div class="cart-container">
+      <div *ngFor="let item of cartItems">
+        <div class="row cart-item-card">
+          <div class="col-3 d-flex align-items-center">
+            <img [src]="item.imageUrl" alt="..." class="img-size" />
+          </div>
+          <div class="col-9">
+            <h3 class="mb-4">{{ item.name }}</h3>
+            <p><b>Price:</b> {{ item.unitPrice | currency : "EUR" }}</p>
+            <div class="d-flex align-items-center mb-4">
+              <span><b>Quantity:</b> {{ item.quantity }}</span>
+              <button
+                class="btn btn-primary px-3 ms-4"
+                (click)="decrementQuantity(item)"
+              >
+                <b>-</b>
+              </button>
+              <button
+                class="btn btn-primary px-3 ms-1"
+                (click)="incrementQuantity(item)"
+              >
+                <b>+</b>
+              </button>
+            </div>
+            <p>
+              <b>Subtotal:</b> {{ (item.quantity * item.unitPrice).toFixed(2) }}
+            </p>
+            <button class="btn btn-danger remove-btn" (click)="remove(item)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <h4>Total Price: {{ totalPrice | currency : "EUR" }}</h4>
+      <h4>Total Quantity: {{ totalQuantity }}</h4>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-money-check-dollar me-1"></i> Checkout
+      </button>
+    </div>
+  </div>
+    <div *ngIf="cartItems.length == 0" class="alert alert-warning" role="alert">
+      No items in the cart.
+    </div>
+  
+</div>

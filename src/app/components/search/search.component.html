@@ -1,31 +1,10 @@
-
-
-  <header>
-    <nav class="navbar navbar-light header-style">
-        <div class="logo-container">
-            <a class="navbar-brand" href="#">
-                <img src="/assets/images/logo.png" width="30" height="24">
-              </a>
-        </div>
-
-
-
-       
-        
-          <div>
-            <input #searchInput type="text" placeholder="Search..." class="form-control" (keyup.enter)="onSearch(searchInput.value)">
-            <button (click)="onSearch(searchInput.value)">Search</button>
-          </div>
-
-        
-          
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-               <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="" width="30" height="24">
-            </li>
-            <li class="nav-item">
-               <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="" width="30" height="24">
-            </li>
-        </ul>
-    </nav>
-</header>
+<div class="d-flex ">
+  <input
+    #searchInput
+    type="text"
+    placeholder="Search..."
+    class="form-control"
+    (keyup.enter)="onSearch(searchInput.value)"
+  />
+  <button (click)="onSearch(searchInput.value)" class="btn btn-info">Search</button>
+</div>

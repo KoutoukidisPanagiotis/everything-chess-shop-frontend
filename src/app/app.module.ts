@@ -12,17 +12,8 @@ import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-const routes: Routes = [
-  { path: 'products/:id', component: ProductDetailsComponent},
-  { path: 'search/:keyword', component: ProductGridComponent},
-  { path: 'category/:id', component: ProductGridComponent },
-  { path: 'category', component: ProductGridComponent },
-  { path: 'products', component: ProductGridComponent },
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: '**', redirectTo: '/products', pathMatch: 'full' }
-
-];
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -31,15 +22,16 @@ const routes: Routes = [
     CategoryListComponent,
     SearchComponent,
     ProductDetailsComponent,
+    CartSummaryComponent,
+    CartDetailsComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatPaginatorModule,
   ],
   providers: [ProductService, provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

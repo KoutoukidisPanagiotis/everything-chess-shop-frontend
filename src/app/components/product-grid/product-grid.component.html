@@ -17,7 +17,7 @@
         <h5 class="card-title">{{ tempProduct.name }}</h5>
         <p class="card-text">{{ tempProduct.unitPrice | currency : "EUR" }}</p>
         <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-primary">Add to Cart</a>
+          <button (click)="addToCart(tempProduct)" class="btn btn-primary">Add to Cart</button>
           <a routerLink="/products/{{tempProduct.id}}" class="btn btn-info">Details</a>
         </div>
       </div>
