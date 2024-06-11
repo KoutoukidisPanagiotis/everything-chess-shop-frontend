@@ -7,8 +7,6 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './cart-summary.component.css'
 })
 export class CartSummaryComponent {
-
-  // totalPrice: number = 0.00;
   totalQuantity: number = 0;
 
   constructor(private cartService: CartService) { }
@@ -18,11 +16,6 @@ export class CartSummaryComponent {
   }
 
   updateCartSummary() {
-    // // Subscribe to the cart totalPrice and totalQuantity
-    // this.cartService.totalPrice.subscribe(
-    //   data => this.totalPrice = data
-    // );
-
     this.cartService.totalQuantity.subscribe(
       data => this.totalQuantity = data
     );

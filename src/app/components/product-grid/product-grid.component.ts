@@ -17,7 +17,7 @@ export class ProductGridComponent {
   products: Product[] = [];
   categoryId!: number;
   previousCategoryId: number = 100;
-  previousKeyword: string="";
+  previousKeyword: string = '';
   categoryName: string = 'Products';
 
   page: number = 0;
@@ -25,7 +25,6 @@ export class ProductGridComponent {
   totalProducts: number = 0;
 
   isLoading: boolean = true;
-  
 
   constructor(
     private productService: ProductService,
@@ -77,12 +76,12 @@ export class ProductGridComponent {
 
   handleSearchProducts() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
-    
+
     if (this.previousKeyword != theKeyword) {
       this.paginator.firstPage();
       this.previousKeyword = theKeyword;
     }
-  
+
     this.productService
       .searchProductsPaginated(theKeyword, this.page, this.pageSize)
       .subscribe((data) => {
@@ -107,5 +106,5 @@ export class ProductGridComponent {
   addToCart(theProduct: Product) {
     const cartItem = new CartItem(theProduct);
     this.cartSevice.addToCart(cartItem);
-}
+  }
 }

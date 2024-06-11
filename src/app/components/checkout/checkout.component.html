@@ -1,0 +1,79 @@
+<form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+  <div formGroupName="shippingDetails">
+    <h3>Shipping Details</h3>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+      />
+      <div
+        *ngIf="
+          checkoutFormGroup.get('shippingDetails.city').invalid &&
+          checkoutFormGroup.get('shippingDetails.city').touched
+        "
+        class="text-danger"
+      >
+        City is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Shipping Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        formControlName="address"
+      />
+      <div
+        *ngIf="
+          checkoutFormGroup.get('shippingDetails.address').invalid &&
+          checkoutFormGroup.get('shippingDetails.address').touched
+        "
+        class="text-danger"
+      >
+        Shipping address is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="zipCode" class="form-label">Zip Code</label>
+      <input type="text" class="form-control" id="zipCode" formControlName="zipCode" />
+      <div
+        *ngIf="
+          checkoutFormGroup.get('shippingDetails.zipCode').invalid &&
+          checkoutFormGroup.get('shippingDetails.zipCode').touched
+        "
+        class="text-danger"
+      >
+        Zip code is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="doorName" class="form-label">Name on Doorbell</label>
+      <input
+        type="text"
+        class="form-control"
+        id="doorName"
+        formControlName="doorName"
+      />
+    </div>
+  </div>
+
+  <hr />
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <h3>Order Summary</h3>
+    <h4>Total Price: {{ totalPrice | currency : "EUR" }}</h4>
+    <h4>Total Quantity: {{ totalQuantity }}</h4>
+  </div>
+  <hr />
+
+  <button type="submit" [disabled]="!isLoggedIn()" class="btn">
+    Checkout
+  </button>
+  <p *ngIf="!isLoggedIn()">Please log in to complete your checkout.</p>
+</form>

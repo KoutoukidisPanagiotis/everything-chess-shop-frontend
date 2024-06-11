@@ -8,17 +8,16 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
+  product: Product;
 
-
-  product!: Product;
-
-  constructor(private productService: ProductService,
-              private route: ActivatedRoute,
-              private cartService: CartService) { }
-
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -26,19 +25,16 @@ export class ProductDetailsComponent {
     });
   }
 
-
   handleProductDetails() {
     const theProductId: number = +this.route.snapshot.paramMap.get('id')!;
 
-    this.productService.getProduct(theProductId).subscribe(
-      data => {
-        this.product = data;
-      }
-    )
+    this.productService.getProduct(theProductId).subscribe((data) => {
+      this.product = data;
+    });
   }
 
   addToCart(theProduct: Product) {
     const cartItem = new CartItem(theProduct);
     this.cartService.addToCart(cartItem);
-}
+  }
 }

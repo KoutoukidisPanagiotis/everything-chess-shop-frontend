@@ -1,4 +1,4 @@
-<div class="d-flex ">
+<div class="d-flex">
   <input
     #searchInput
     type="text"
@@ -6,5 +6,7 @@
     class="form-control"
     (keyup.enter)="onSearch(searchInput.value)"
   />
-  <button (click)="onSearch(searchInput.value)" class="btn btn-info">Search</button>
+  <button (click)="onSearch(searchInput.value)" class="btn btn-info">
+    Search
+  </button>
 </div>

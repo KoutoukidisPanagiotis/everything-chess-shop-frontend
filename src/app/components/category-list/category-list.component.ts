@@ -5,23 +5,20 @@ import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrl: './category-list.component.css'
+  styleUrl: './category-list.component.css',
 })
 export class CategoryListComponent {
+  categories: ProductCategory[] = [];
 
-  categories: ProductCategory[] =[];
-
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.listCategories();
   }
 
   listCategories() {
-    this.productService.getCategoryList().subscribe(
-      data => {
-        this.categories = data;
-      }
-    );
+    this.productService.getCategoryList().subscribe((data) => {
+      this.categories = data;
+    });
   }
 }

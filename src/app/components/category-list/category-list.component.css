@@ -1,33 +1,26 @@
-
 .sidebar {
-    /* background-color: #94b1ae;
-    height: calc(100vh - 4rem);
-    width: 20%;
-    position: fixed;
-    top: 4rem;
-    left: 0;
-    box-shadow: 4px 0px 5px 0px #939393; */
-    padding-top: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 ul {
-    list-style: none;
-    padding: 1rem;
+  list-style: none;
+  padding: 1rem;
 }
 
 ul li {
-    
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 5px;
-}
-ul li:hover {
-    background-color: #64897c;;
-}
-ul li.active {
-    background-color: #547268;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
 }
 
-ul li a{
-    color: azure;
+ul li:hover {
+  background-color: #64897c;
+}
+
+ul li.active {
+  background-color: #547268;
+}
+
+ul li a {
+  color: azure;
 }
