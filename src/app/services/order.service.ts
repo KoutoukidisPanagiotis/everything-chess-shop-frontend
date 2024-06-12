@@ -32,4 +32,21 @@ export class OrderService {
       withCredentials: true,
     });
   }
+
+  updateOrderStatus(trackingNumber: string, newStatus: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'text/plain'
+    };
+    return this.http.patch(
+      this.apiUrl + '/admin-orders/' + trackingNumber,
+      newStatus,
+      {
+        headers,
+        withCredentials: true,
+        responseType: 'text'
+      }
+    );
+  }
 }

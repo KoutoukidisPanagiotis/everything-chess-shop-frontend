@@ -13,14 +13,17 @@ export class AuthService {
 
   private registerUrl = 'http://localhost:8080/auth/signup';
 
+  private authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
+  isAuthenticated$ = this.authStatus.asObservable();
+
   constructor(private http: HttpClient, private jwtService: JwtService, private cartService: CartService) {}
 
   login(user: LoginDto): Observable<any> {
     return this.http.post<any>(this.loginUrl, user).pipe(
       tap((response) => {
         localStorage.setItem('token', response.token);
-        this.jwtService.getUsername();
-        this.jwtService.getRole();
+         this.jwtService.getUsername();
+         this.jwtService.getRole();
       })
     );
   }
@@ -36,6 +39,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.cartService.clearCart();
+    this.jwtService.clearUsername();
+    this.jwtService.clearRole();
   }
 
   register(user: UserDto) {

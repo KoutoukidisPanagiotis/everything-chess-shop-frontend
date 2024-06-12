@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading">
+<!-- <div *ngIf="!isLoading">
     <div *ngIf="orders && orders.length > 0; else noOrders">
       <div *ngFor="let order of orders" class="mb-4">
         <div class="card">
@@ -20,6 +20,52 @@
             </p>
             <p class="mb-1"><strong>Address:</strong> {{ order.address }}</p>
             <p class="mb-1"><strong>Status:</strong> {{ order.status }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noOrders>
+      <div class="alert alert-warning" role="alert">No orders found.</div>
+    </ng-template>
+  </div> -->
+
+  <div *ngIf="!isLoading">
+    <div *ngIf="orders && orders.length > 0; else noOrders">
+      <div *ngFor="let order of orders" class="mb-4">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="mb-0">
+              Order Tracking Number: {{ order.orderTrackingNumber }}
+            </h2>
+          </div>
+          <div class="card-body">
+            <p class="mb-1">
+              <strong>Date Created:</strong>
+              {{ order.dateCreated | date : "short" }}
+            </p>
+            <p class="mb-1">
+              <strong>Total Price:</strong> {{ order.totalPrice | currency }}
+            </p>
+            <p class="mb-1">
+              <strong>Order Item Quantity:</strong> {{ order.orderItemQuantity }}
+            </p>
+            <p class="mb-1"><strong>Address:</strong> {{ order.address }}</p>
+            <p class="mb-1">
+              <strong>Status:</strong> 
+              <span [ngStyle]="{
+                'color': order.status === 'PROCESSING' ? 'dodgerblue' :
+                         order.status === 'SHIPPED' ? 'orange' :
+                         order.status === 'COMPLETED' ? 'darkgreen' :
+                         order.status === 'CANCELLED' ? 'red' : 'black'
+              }">{{ order.status }}</span>
+            </p>
+              <form [formGroup]="orderForm">
+                <select formControlName="status">
+                  <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                </select>
+                <button type="submit" (click)="changeOrderStatus(order)">Confirm</button>
+              </form>
           </div>
         </div>
       </div>

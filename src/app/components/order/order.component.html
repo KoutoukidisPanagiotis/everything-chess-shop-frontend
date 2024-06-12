@@ -19,7 +19,15 @@
             <strong>Order Item Quantity:</strong> {{ order.orderItemQuantity }}
           </p>
           <p class="mb-1"><strong>Address:</strong> {{ order.address }}</p>
-          <p class="mb-1"><strong>Status:</strong> {{ order.status }}</p>
+          <p class="mb-1">
+            <strong>Status:</strong> 
+            <span [ngStyle]="{
+              'color': order.status === 'PROCESSING' ? 'dodgerblue' :
+                       order.status === 'SHIPPED' ? 'orange' :
+                       order.status === 'COMPLETED' ? 'darkgreen' :
+                       order.status === 'CANCELLED' ? 'red' : 'black'
+            }">{{ order.status }}</span>
+          </p>
         </div>
       </div>
     </div>

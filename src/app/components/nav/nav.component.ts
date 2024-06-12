@@ -18,21 +18,20 @@ export class NavComponent {
     private jwtService: JwtService
   ) {}
 
+  
   ngOnInit() {
-    if (this.authService.isAuthenticated()) {
-      this.jwtService.getUsername().subscribe((username) => {
-        this.username = username;
-        console.log(this.username);
-      });
-
-      this.jwtService.getRole().subscribe((role) => {
-        this.role = role;
-        console.log(this.role);
-      });
-    }
+    this.jwtService.getUsername().subscribe((username) => {
+      this.username = username;
+    });
+    this.jwtService.getRole().subscribe((role) => {
+      this.role = role;
+    });
   }
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
+
+

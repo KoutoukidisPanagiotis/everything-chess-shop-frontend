@@ -1,23 +1,25 @@
-<nav class="navbar navbar-light header-style">
+<nav class="navbar navbar-light header-style d-flex justify-content-between">
   <div class="logo-container">
     <a class="navbar-brand" routerLink="/products">
       <img src="/assets/images/logo.png" width="80" height="64" />
     </a>
   </div>
-  <app-search></app-search>
+  <div class="d-flex justify-content-center flex-grow-1">
+    <app-search></app-search>
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="me-2" *ngIf="authService.isAuthenticated()">
+      <span class="text-white">Hello, {{username}}</span>
+      <a class="btn btn-primary" routerLink="/orders">My Orders</a>
+      <a class="btn btn-primary" routerLink="/admin-orders" *ngIf="role === 'ADMIN'">All Orders</a>
+    </div>
+    <div *ngIf="authService.isAuthenticated()">
+      <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+    <div *ngIf="!authService.isAuthenticated()">
+      <a class="btn btn-primary" routerLink="/login">Login</a>
+      <a class="btn btn-primary" routerLink="/register">Register</a>
+    </div>
+  </div>
   <app-cart-summary></app-cart-summary>
-
-  <a routerLink="/orders" *ngIf="authService.isAuthenticated()">My Orders</a>
-  <button (click)="logout()" *ngIf="authService.isAuthenticated()">
-    Logout
-  </button>
-
-  <a
-    routerLink="/admin-orders"
-    *ngIf="authService.isAuthenticated() && role === 'ADMIN'"
-    >All Orders</a
-  >
-
-  <a routerLink="/login" *ngIf="!authService.isAuthenticated()">Login</a>
-  <a routerLink="/register" *ngIf="!authService.isAuthenticated()">Register</a>
 </nav>

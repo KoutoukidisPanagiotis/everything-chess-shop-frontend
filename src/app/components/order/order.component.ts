@@ -19,4 +19,5 @@ export class OrderComponent implements OnInit {
       this.isLoading = false;
     });
   }
+
 }

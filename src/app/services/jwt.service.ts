@@ -41,4 +41,12 @@ export class JwtService {
     }
     return this.role$;
   }
+
+  clearUsername() {
+    this.usernameSubject.next(null);
+  }
+
+  clearRole() {
+    this.roleSubject.next(null);
+  }
 }
