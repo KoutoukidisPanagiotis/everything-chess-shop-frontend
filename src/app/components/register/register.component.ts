@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  errorMessage: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -27,15 +28,15 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.registerForm.valid) {
       const user: UserDto = this.registerForm.value;
-      this.authService.register(user).subscribe(
-        (response) => {
+      this.authService.register(user).subscribe({
+        next: (response) => {
           console.log('Registration successful', response);
           this.router.navigate(['/login']);
         },
-        (error) => {
-          console.log('Registration failed', error);
+        error: (error) => {
+          this.errorMessage = 'Registration failed. Please try a different email.'
         }
-      );
+      });
     }
   }
 }
