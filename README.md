@@ -1,7 +1,7 @@
 # Angular Everything Chess
 
 This is an ecommerce project built with Angular. It's a web application that allows users to browse and purchase chess-related products.
-This project is the frontend for the Everything Chess application. It is meant to be used in conjunction with the [Everything Chess Backend](https://github.com/KoutoukidisPanagiotis/everything-chess-shop-backend/tree/main) project. Make sure to set up and run the backend project before running this frontend project.
+This project is the frontend for the Everything Chess application. It is meant to be used in conjunction with the [Everything Chess Backend](https://github.com/KoutoukidisPanagiotis/everything-chess-shop-backend) project. Make sure to set up and run the backend project before running this frontend project.
 
 ## Features
 
