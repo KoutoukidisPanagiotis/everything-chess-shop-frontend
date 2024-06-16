@@ -96,10 +96,10 @@ export class ProductGridComponent {
   }
 
   handleProductData(data: any) {
-    this.products = data._embedded.products;
-    this.totalProducts = data.page.totalElements;
-    this.pageSize = data.page.size;
-    this.page = data.page.number;
+    this.products =data.content;
+    this.totalProducts = data.totalElements;
+    this.pageSize = data.pageable.pageSize;
+    this.page = data.pageable.pageNumber;
     this.isLoading = false;
   }
 

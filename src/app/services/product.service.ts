@@ -9,9 +9,6 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root'
 })
 export class ProductService {
- 
-  
-  
 
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl = 'http://localhost:8080/api/product-category';
@@ -20,9 +17,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   getCategoryList(): Observable<ProductCategory[]> {
-    return this.httpClient.get<GetResponseCategory>(this.categoryUrl).pipe(
-      map(response => response._embedded.productCategory)
-    );
+    return this.httpClient.get<ProductCategory[]>(this.categoryUrl);
   }
   
   getCategoryName(categoryId: number): Observable<string> {
@@ -55,19 +50,11 @@ export class ProductService {
 }
 
 interface GetResponse {
-  _embedded: {
-    products: Product[];
+  content: [Product],
+  pageable: {
+    pageSize: number,
+    pageNumber: number
   },
-  page: {
-    size: number,
-    totalElements: number,
+  totalElements: number,
     totalPages: number,
-    number: number
-  }
-}
-
-interface GetResponseCategory {
-  _embedded: {
-    productCategory: ProductCategory[];
-  }
 }
